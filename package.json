@@ -1,13 +1,13 @@
 {
   "name": "inventory-app",
   "version": "1.0.0",
-  "main": "inventory-app/node_modules/expo/AppEntry.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "inventory-app/node_modules/.bin/expo start",
-    "android": "inventory-app/node_modules/.bin/expo start --android",
-    "ios": "inventory-app/node_modules/.bin/expo start --ios",
-    "web": "inventory-app/node_modules/.bin/expo start --web",
-    "eject": "inventory-app/node_modules/.bin/expo eject"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
   },
   "dependencies": {
     "expo": "~44.0.0",
