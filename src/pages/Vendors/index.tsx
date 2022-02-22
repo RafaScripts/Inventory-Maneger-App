@@ -5,55 +5,45 @@ import { AntDesign, Ionicons } from '@expo/vector-icons';
 import styles from './styles';
 import api from '../../services/api';
 
-export default function Itens(){
+export default function Vendors(){
     const navigation = useNavigation();
-    const [ products, setProducts ] = useState([]);
+    const [ vendors, setVendors ] = useState([]);
 
 
-    async function loadProducts() {
-        const response = await api.get('/itens');
+    async function LoadVendors() {
+        const response = await api.get('/vendors');
 
-        setProducts(response.data);
+        setVendors(response.data);
     }
 
     useEffect(() => {
-        loadProducts();
-    }, [products]);
+        LoadVendors();
+    }, [vendors]);
 
 
     function navigationToAdd() {
-        navigation.navigate('addItem');
-    }
-
-    function navigationToVendors() {
-        navigation.navigate('Vendors');
+        navigation.navigate('addVendor');
     }
 
     return (
         <View style={styles.container}>
+
             <FlatList
-                data={products}
+                data={vendors}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => {
                     return (
                         <View style={styles.products}>
                             <Text style={styles.productsProperty}>ID: { item.id }</Text>
-                            <Text style={styles.productsValue}>{ item.name }</Text>
-                            <Text style={styles.productsValue}>{ item.total }</Text>
                             <Text style={styles.productsValue}>{ item.VendorName }</Text>
                         </View>
                     )
                 }}/>
+
             <TouchableOpacity
                 style={styles.Cbuttom}
                 onPress={() => navigationToAdd()}>
                 <Ionicons name="add" size={40} color="#fff" />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-                style={styles.Bbuttom}
-                onPress={() => navigationToVendors()}>
-                <AntDesign name="idcard" size={24} color="#fff" />
             </TouchableOpacity>
 
         </View>
